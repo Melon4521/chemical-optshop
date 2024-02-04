@@ -1,0 +1,127 @@
+.popup {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+
+  &._open {
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.4s ease;
+  }
+
+  &._open &__content {
+      opacity: 1;
+      transform: scale(1) translate(0px, 0px);
+      transition: all 0.4s ease;
+  }
+
+  &__body {
+      display: flex;
+      min-height: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 15px;
+  }
+
+  &__content {
+      background-color: #fff;
+      color: #000;
+      max-width: 600px;
+      max-height: 80vh;
+      min-height: 100px;
+      width: 100%;
+      padding: 40px;
+      border-radius: 20px;
+      position: relative;
+      overflow-y: auto;
+      
+      opacity: 0;
+      transform: scale(0) translate(0px, 100%);
+      transition: all 0.4s ease;
+      
+      @media (max-width: 600px) {
+          & {
+              padding: 20px;
+          }
+      }
+  }
+  
+  &__close {
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      font-size: 23px;
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+          color: indianred;
+          cursor: pointer;
+          transition: color 0.3s ease;
+      }
+  }
+  
+  &__title {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 35px;
+
+      @media (max-width: 375px) {
+          & {
+              font-size: 26px;
+              margin-bottom: 20px;
+          }
+      }
+  }
+
+  &__sub-title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 15px;
+
+      @media (max-width: 375px) {
+          & {
+              font-size: 19px;
+              margin-bottom: 10px;
+          }
+      }
+  }
+
+  &__text-item {
+      margin-bottom: 20px;
+  }
+  
+  &__text {
+      line-height: 145%;
+      font-weight: 300;
+      color: #333;
+      font-size: 16px;
+  }
+
+  &__link {
+      font-size: 18px;
+      color: #000;
+      transition: all .3s ease-in;
+
+      @media (any-hover: hover) {
+          &:hover {
+              color: #333;
+              transition: all .3s ease-in;
+          }
+      }
+  }
+}
+
+.popup-opener {
+  cursor: pointer;
+}

@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'Manrope';
+  src: url('../fonts/subset-Manrope-Regular.eot');
+  src: local('Manrope Regular'), local('Manrope-Regular'),
+    url('../fonts/subset-Manrope-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/subset-Manrope-Regular.woff2') format('woff2'),
+    url('../fonts/subset-Manrope-Regular.woff') format('woff'),
+    url('../fonts/subset-Manrope-Regular.ttf') format('truetype'),
+    url('../fonts/subset-Manrope-Regular.svg#Manrope-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yeseva One';
+  src: url('../fonts/subset-YesevaOne-Regular.eot');
+  src: local('Yeseva One Regular'), local('YesevaOne-Regular'),
+    url('../fonts/subset-YesevaOne-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/subset-YesevaOne-Regular.woff2') format('woff2'),
+    url('../fonts/subset-YesevaOne-Regular.woff') format('woff'),
+    url('../fonts/subset-YesevaOne-Regular.ttf') format('truetype'),
+    url('../fonts/subset-YesevaOne-Regular.svg#YesevaOne-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('../fonts/subset-Manrope-Medium.eot');
+  src: local('Manrope Medium'), local('Manrope-Medium'),
+    url('../fonts/subset-Manrope-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/subset-Manrope-Medium.woff2') format('woff2'),
+    url('../fonts/subset-Manrope-Medium.woff') format('woff'),
+    url('../fonts/subset-Manrope-Medium.ttf') format('truetype'),
+    url('../fonts/subset-Manrope-Medium.svg#Manrope-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('../fonts/subset-Manrope-Bold.eot');
+  src: local('Manrope Bold'), local('Manrope-Bold'),
+    url('../fonts/subset-Manrope-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/subset-Manrope-Bold.woff2') format('woff2'),
+    url('../fonts/subset-Manrope-Bold.woff') format('woff'),
+    url('../fonts/subset-Manrope-Bold.ttf') format('truetype'),
+    url('../fonts/subset-Manrope-Bold.svg#Manrope-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

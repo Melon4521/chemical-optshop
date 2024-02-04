@@ -1,0 +1,791 @@
+//<HELLO BLOCK>==============================================================================
+
+.hello {
+  display: flex;
+  flex-direction: column;
+
+  // .hello__title
+  &__title {
+    color: $blueColor;
+    font-family: 'Yeseva One';
+    @include adaptive-value("font-size", 81, 40, $containerWidth, 767.98);
+    @include adaptive-value("letter-spacing", 0.3, 0);
+    line-height: 110%;
+    text-transform: uppercase;
+    text-align: center;
+
+    @media (max-width: $mobile) {
+      // text-align: left;
+      @include adaptive-value("font-size", 85, 54, 767.98, 319.98);
+      margin-bottom: rem(10);
+    }
+  }
+
+  // .hello__sub
+  &__sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rem(20);
+    padding: 0 5px;
+
+    @media (max-width: $mobileSmall) {
+      flex-direction: column;
+      align-items: center;
+      row-gap: rem(8);
+    }
+  }
+
+  // .hello__subtitle
+  &__subtitle {
+    color: $blueColor;
+    @include adaptive-value("font-size", 16, 14);
+    font-weight: 700;
+  }
+
+  // .hello__img
+  &__img {
+    flex: 1 1 100%;
+    max-height: rem(450);
+    min-height: rem(300);
+
+    img {
+      max-height: rem(450);
+      min-height: rem(300);
+      border-radius: rem(30);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+//</HELLO BLOCK>==============================================================================
+
+//<SALES BLOCK>==============================================================================
+
+.sales {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: rem(50);
+
+  // .sales__title
+  &__title {}
+
+  $cardsGapFrom: 30;
+  $cardsGapTo: 15;
+
+  // .sales__cards
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include adaptive-value("row-gap", $cardsGapFrom, $cardsGapTo);
+
+    @include adaptive-value("margin-right", math.div(($cardsGapFrom * -1), 2), math.div(($cardsGapTo * -1), 2));
+    @include adaptive-value("margin-left", math.div(($cardsGapFrom * -1), 2), math.div(($cardsGapTo * -1), 2));
+  }
+
+  // .sales__item
+  &__item {
+    flex: 0 1 25%;
+    @include adaptive-value("padding-right", math.div($cardsGapFrom, 2), math.div($cardsGapTo, 2));
+    @include adaptive-value("padding-left", math.div($cardsGapFrom, 2), math.div($cardsGapTo, 2));
+
+    @media (max-width: em(685)) {
+      flex-basis: 50%;
+    }
+
+    @media (max-width: $mobileSmall) {
+      flex-basis: 100%;
+
+      &:nth-last-child(-n+3) {
+        display: none;
+      }
+    }
+  }
+
+  // .sales__card
+  &__card {}
+
+}
+
+.sale-card {
+  min-width: rem(200);
+
+  @include adaptive-value("padding", 20, 17);
+  background-color: $greyColor;
+  border-radius: 30px;
+  position: relative;
+
+  &::before {
+    content: '-10%';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    width: rem(55);
+    height: rem(55);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: url('../icons/star.svg') center / cover no-repeat;
+
+    color: #FFF;
+    @include adaptive-value("font-size", 16, 14);
+    font-weight: 700;
+    line-height: 100%;
+  }
+
+  // .sale-card__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(10);
+  }
+
+  // .sale-card__img
+  &__img {
+    display: block;
+    max-width: 100%;
+    margin-bottom: rem(10);
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  // .sale-card__title
+  &__title {
+    line-height: 140%;
+    @include adaptive-value("font-size", 16, 14);
+  }
+
+  // .sale-card__select
+  &__select {
+    padding: rem(10) rem(8);
+    border-radius: 8px;
+    @extend .text;
+    font-size: rem(14);
+    line-height: normal;
+    border: 1px solid $borderGreyColor;
+    background: #fff;
+  }
+
+  // .sale-card__prices
+  &__prices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  // .sale-card__price
+  &__price {
+    flex: 1 1 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    >span {
+      @extend .text;
+      font-size: rem(14);
+    }
+  }
+
+  // .sale-card__button
+  &__button {
+    display: none;
+
+    padding: rem(8) rem(20);
+    border-radius: 8px;
+    font-size: rem(15);
+    align-self: stretch;
+  }
+
+}
+
+.sale-price {
+
+  // .sale-price__new
+  &__new {
+    color: $blueColor;
+    font-size: rem(15);
+    font-weight: 700;
+  }
+
+  // .sale-price__old
+  &__old {
+    color: #A0A5AA;
+    font-size: rem(12);
+    font-weight: 500;
+    text-decoration: line-through;
+  }
+
+}
+
+//</SALES BLOCK>==============================================================================
+
+//<ADVATAGES BLOCK>==============================================================================
+
+.advantages {
+
+  $advantagesGap: 40;
+
+  // .advantages__title
+
+  &__title {
+    @include adaptive-value("margin-bottom", 70, 50);
+  }
+
+  // .advantages__items
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: rem(40);
+
+    margin-right: rem(math.div(($advantagesGap * -1), 2));
+    margin-left: rem(math.div(($advantagesGap * -1), 2));
+  }
+
+  // .advantages__item
+
+  &__item {
+    padding: 0 rem(math.div($advantagesGap, 2));
+    flex: 0 1 33.333%;
+    min-width: rem(250);
+
+    @media (max-width: $mobileSmall) {
+      min-width: auto;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: em(1020)) {
+      flex-basis: 50%;
+    }
+
+    @media (max-width: em(500)) {
+      flex-basis: 90%;
+    }
+  }
+
+  // .advantages__icon
+
+  &__icon {
+    font-size: rem(64);
+    color: $blueDarkColor;
+    margin-bottom: rem(30);
+  }
+
+  // .advantages__name
+
+  &__name {
+    color: $blueColor;
+    text-align: center;
+    @include adaptive-value("font-size", 24, 20);
+    font-weight: 700;
+    line-height: 130%;
+    margin-bottom: rem(15);
+
+    @media (max-width: em(500)) {
+      max-width: 80%;
+    }
+  }
+
+  // .advantages__text
+
+  &__text {
+    text-align: center;
+  }
+}
+
+//</ADVATAGES BLOCK>==============================================================================
+
+//<ABOUT BLOCK>==============================================================================
+
+.about {
+  display: flex;
+
+  @media (max-width: $mobile) {
+    margin-right: rem(-20);
+    margin-left: rem(-20);
+  }
+
+  // .about__part
+
+  &__part {
+    flex: 0 1 50%;
+    max-height: rem(600);
+
+    &:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: rem(60) rem(20);
+      @include adaptive-value("padding-right", 50, 20);
+      @include adaptive-value("padding-left", 50, 20);
+      background-color: $greyColor;
+      border-radius: 30px 0 0 30px;
+    }
+
+    &:last-child {
+      max-height: rem(600);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0 30px 30px 0;
+      }
+    }
+  }
+
+  @media (max-width: em(880)) {
+    flex-direction: column;
+
+    &__part:first-child {
+      border-radius: 30px 30px 0 0;
+    }
+
+    &__part:last-child {
+      max-height: rem(350);
+
+      img {
+        border-radius: 0 0 30px 30px;
+        max-height: rem(350);
+      }
+    }
+  }
+
+  // .about__title
+
+  &__title {
+    @include adaptive-value("font-size", 40, 30);
+    margin-bottom: rem(30);
+    text-align: left;
+  }
+
+  // .about__text
+
+  &__text {
+    margin-bottom: rem(20);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+//</ABOUT BLOCK>==============================================================================
+
+//<SAVE_PRICE BLOCK>==============================================================================
+
+.save-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // .save-price__title
+
+  &__title {
+    @include adaptive-value("margin-bottom", 25, 20);
+  }
+
+  // .save-price__text
+
+  &__text {
+    @include adaptive-value("margin-bottom", 60, 40);
+    text-align: center;
+    max-width: rem(320);
+  }
+
+  // .save-price__button
+
+  &__button {
+    text-align: center;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      @include adaptive-value("left", -81, -60);
+      @include adaptive-value("top", -33, -29);
+      z-index: 2;
+      @include adaptive-value("width", 35, 25);
+      @include adaptive-value("height", 61, 51);
+      background: url('../icons/arrow.svg') center / contain no-repeat;
+    }
+  }
+}
+
+//</SAVE_PRICE BLOCK>==============================================================================
+
+//<PRODUCTS BLOCK>==============================================================================
+
+.products {
+  $productsGapFrom: 35;
+  $productsGapTo: 20;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // .products__title
+
+  &__title {
+    @include adaptive-value("margin-bottom", 60, 50);
+  }
+
+  // .products__items
+
+  &__items {
+    @include adaptive-value("margin-bottom", 60, 50);
+    @include adaptive-value("margin-right",
+      math.div(($productsGapFrom * -1), 2),
+      math.div(($productsGapTo * -1), 2));
+    @include adaptive-value("margin-left",
+      math.div(($productsGapFrom * -1), 2),
+      math.div(($productsGapTo * -1), 2));
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include adaptive-value("row-gap", $productsGapFrom, $productsGapTo);
+  }
+
+  // .products__item
+
+  &__item {
+    @include adaptive-value("padding-right",
+      math.div($productsGapFrom, 2),
+      math.div($productsGapTo, 2));
+    @include adaptive-value("padding-left",
+      math.div($productsGapFrom, 2),
+      math.div($productsGapTo, 2));
+
+    flex: 0 0 33.333%;
+    @include adaptive-value("min-width", 315, 260, $containerWidth, 767.98);
+
+    @media (max-width: $mobile) {
+      @include adaptive-value("min-width", 260, 200, 767.98, $minWidth);
+      flex-basis: 50%;
+    }
+
+    @media (max-width: em(530)) {
+      flex-basis: 100%;
+    }
+  }
+
+  // .products__item-body
+
+  &__item-body {
+    display: block;
+    border-radius: 40px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    position: relative;
+
+    >* {
+      position: absolute;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        .products__layer {
+          opacity: 0.55;
+        }
+
+        .products__line,
+        .products__subtitle {
+          opacity: 1;
+        }
+
+        .products__subtitle {
+          transform: translate(-50%, 50%);
+        }
+
+        .products__name {
+          transform: translate(-50%, -150%);
+        }
+      }
+    }
+  }
+
+  // .products__name
+
+  &__name {
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #FFF;
+    text-align: center;
+    @include adaptive-value("font-size", 25, 20, $containerWidth, 767.98);
+
+    @media (max-width: $mobile) {
+      @include adaptive-value("font-size", 23, 20, 767.98, $minWidth);
+    }
+
+    @media (max-width: em(530)) {
+      font-size: rem(25);
+      max-width: 80%;
+    }
+
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+    width: 100%;
+    transition: all .3s ease-in;
+  }
+
+  // .products__line
+
+  &__line {
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 125px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 25px;
+
+    opacity: 0;
+    transition: all .3s ease-in;
+  }
+
+  // .products__subtitle
+
+  &__subtitle {
+    width: 100%;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #FFF;
+    text-align: center;
+    @include adaptive-value("font-size", 20, 18);
+    font-weight: 500;
+    line-height: 150%;
+
+    opacity: 0;
+    transition: all .3s ease-in;
+  }
+
+  // .products__layer
+
+  &__layer {
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.20) 100%);
+    transition: all .2s ease-in;
+  }
+}
+
+//</PRODUCTS BLOCK>==============================================================================
+
+//<CONTACT_US BLOCK>==============================================================================
+
+.contact-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 rem(20);
+  @include adaptive-value("padding-top", 80, 60);
+  @include adaptive-value("padding-bottom", 80, 60);
+  border-radius: 30px;
+  background-color: $greyColor;
+
+  @media (max-width: $mobile) {
+    margin-right: rem(-20);
+    margin-left: rem(-20);
+  }
+
+  // .contact-us__title
+
+  &__title {
+    @include adaptive-value("margin-bottom", 60, 50);
+    max-width: 80%;
+
+    @media (max-width: $mobile) {
+      max-width: none;
+    }
+  }
+
+  // .contact-us__form
+
+  &__form {
+    max-width: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include adaptive-value("row-gap", 35, 20);
+
+    @media (max-width: $mobile) {
+      max-width: none;
+    }
+  }
+
+  // .contact-us__button
+
+  &__button {
+    @include adaptive-value("margin-top", 40, 30);
+  }
+}
+
+.contact-form {
+
+  // .contact-form__item
+
+  &__item {
+    width: 100%;
+  }
+
+  // .contact-form__label
+
+  &__label {
+    display: block;
+    color: $blueDarkColor;
+    @include adaptive-value("font-size", 20, 18);
+    font-weight: 500;
+    line-height: normal;
+    @include adaptive-value("margin-bottom", 10, 5);
+  }
+
+  // .contact-form__input
+
+  &__input {
+    display: block;
+    width: 100%;
+    padding: rem(20);
+    border-radius: 8px;
+    border: 2px solid $borderGreyColor;
+    background: #FFF;
+    transition: all .2s ease-in;
+
+    @extend .text;
+
+    &:focus {
+      border: 3px solid $blueColor;
+    }
+  }
+}
+
+//</CONTACT_US BLOCK>==============================================================================
+
+//<MAP BLOCK>==============================================================================
+
+.map {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $mobile) {
+    margin-right: rem(-20);
+    margin-left: rem(-20);
+  }
+
+  // .map__inner
+
+  &__inner {
+    border-radius: 30px 30px 0 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    max-width: 100%;
+    min-height: rem(350);
+    max-height: rem(500);
+
+    position: relative;
+
+    > div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    [class*="ground-pane"] {
+      filter: grayscale(1);
+    }
+  }
+
+  // .map__content
+
+  &__content {
+    padding: rem(60) 0;
+    @include adaptive-value("padding-right", 60, 20);
+    @include adaptive-value("padding-left", 60, 20);
+
+    background-color: $greyColor;
+    border-radius: 0 0 30px 30px;
+
+    display: flex;
+    flex-wrap: wrap;
+    @include adaptive-value("gap", 50, 20);
+  }
+
+  // .map__item
+
+  &__item {}
+
+  // .map__title
+
+  &__title {
+    text-align: left;
+    font-family: Manrope;
+    font-weight: 700;
+    line-height: 100%;
+    @include adaptive-value("font-size", 30, 25);
+    margin-bottom: rem(15);
+  }
+
+  // .map__list
+
+  &__list {}
+
+  // .map__li
+
+  &__li {
+    max-width: rem(270);
+    @include adaptive-value("font-size", 18, 16);
+    margin-bottom: rem(5);
+    font-weight: 500;
+    transition: all .2s ease-in;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      transition: all .2s ease-in;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: $hoverGreyColor;
+        }
+      }
+    }
+  }
+}
+
+//</MAP BLOCK>==============================================================================
